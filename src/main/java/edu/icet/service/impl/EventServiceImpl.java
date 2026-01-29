@@ -74,6 +74,11 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventDto> searBybudget(Double budget) {
-        return List.of();
+        List<EventEntity>entities=repository.findBybudget(budget);
+        ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
+        entities.forEach(eventEntity -> {
+            eventDtoArrayList.add(mapper.map(eventEntity, EventDto.class));
+        });
+        return eventDtoArrayList;
     }
 }

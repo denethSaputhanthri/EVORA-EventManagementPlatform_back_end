@@ -45,4 +45,8 @@ public class EventController {
     public EventDto searchByuserId(@PathVariable Integer userId){
         return service.searByuserId(userId);
     }
+    @GetMapping("/searchBybudget/{budget}")
+    public List<EventDto> searchBybudget(Double budget){
+        return service.searBybudget(budget) ;
+    }
 }
