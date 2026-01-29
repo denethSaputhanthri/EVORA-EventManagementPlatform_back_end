@@ -69,7 +69,12 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventDto> searchBylocation(String location) {
-        return List.of();
+        List<EventEntity>entities=repository.findBylocation(location);
+        ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
+        entities.forEach(eventEntity -> {
+            eventDtoArrayList.add(mapper.map(eventEntity, EventDto.class));
+        });
+        return eventDtoArrayList;
     }
 
     @Override

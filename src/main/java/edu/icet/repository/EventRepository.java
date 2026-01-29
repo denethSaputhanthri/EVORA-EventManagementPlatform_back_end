@@ -11,4 +11,5 @@ public interface EventRepository extends JpaRepository<EventEntity,Integer> {
     List<EventEntity> findBybudget(Double budget);
     List<EventEntity> findBydate(LocalDate date);
     List<EventEntity> findBytype(String type);
+    List<EventEntity> findBylocation(String location);
 }
