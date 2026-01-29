@@ -24,4 +24,8 @@ public class EventController {
     public List<EventDto> getAllEvent(){
         return service.getAllEventDetail();
     }
+    @PutMapping("/update/details")
+    public void updateEvent(@RequestBody EventDto event){
+        service.updateEvent(event);
+    }
 }

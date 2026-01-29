@@ -29,7 +29,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public void updateEvent(EventDto event) {
-
+        repository.save(mapper.map(event, EventEntity.class));
     }
 
     @Override
