@@ -28,4 +28,8 @@ public class EventController {
     public void updateEvent(@RequestBody EventDto event){
         service.updateEvent(event);
     }
+    @DeleteMapping("/delete/details")
+    public void deleteEvent(Integer eventId){
+        service.deleteEvent(eventId);
+    }
 }
