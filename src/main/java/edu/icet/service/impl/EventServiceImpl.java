@@ -12,6 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -38,7 +39,12 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventDto> getAllEventDetail() {
-        return List.of();
+        List<EventEntity>entities=repository.findAll();
+        ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
+        entities.forEach(eventEntity -> {
+            eventDtoArrayList.add(mapper.map(eventEntity, EventDto.class));
+        });
+        return eventDtoArrayList;
     }
 
     @Override

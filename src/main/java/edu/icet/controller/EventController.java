@@ -6,6 +6,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/Event")
@@ -17,5 +19,9 @@ public class EventController {
     @PostMapping("/add/details")
     public void addEvent(@RequestBody EventDto event){
         service.addEvent(event);
+    }
+    @GetMapping("/get/details")
+    public List<EventDto> getAllEvent(){
+        return service.getAllEventDetail();
     }
 }
