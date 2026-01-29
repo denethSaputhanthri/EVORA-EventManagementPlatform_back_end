@@ -5,11 +5,11 @@ import edu.icet.dto.ServicesDto;
 import java.util.List;
 
 public interface ServicesService {
-    void addService();
-    void updateService();
+    void addService(ServicesDto servicesDto);
+    void updateService(ServicesDto servicesDto);
     void deleteService(Integer id);
     ServicesDto searchServiceById(Integer id);
-    ServicesDto searchServiceByName(String name);
+    List<ServicesDto> searchServiceByName(String name);
     List<ServicesDto> searchServiceByPrice(Double price);
     List<ServicesDto> getAllServices();
     List<ServicesDto> getAllServicesByName(String name);
