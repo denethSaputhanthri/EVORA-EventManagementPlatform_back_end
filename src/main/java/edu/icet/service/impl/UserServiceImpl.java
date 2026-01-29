@@ -1,13 +1,19 @@
 package edu.icet.service.impl;
 
 import edu.icet.dto.UserDto;
+import edu.icet.repository.UserRepository;
 import edu.icet.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
+    final UserRepository repository;
+    final ModelMapper mapper;
 
     @Override
     public void addUser(UserDto user) {
