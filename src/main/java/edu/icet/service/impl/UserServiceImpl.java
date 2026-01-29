@@ -1,6 +1,7 @@
 package edu.icet.service.impl;
 
 import edu.icet.dto.UserDto;
+import edu.icet.entity.UserEntity;
 import edu.icet.repository.UserRepository;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(UserDto user) {
-
+        repository.save(mapper.map(user, UserEntity.class));
     }
 
     @Override
@@ -55,3 +56,4 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 }
+
