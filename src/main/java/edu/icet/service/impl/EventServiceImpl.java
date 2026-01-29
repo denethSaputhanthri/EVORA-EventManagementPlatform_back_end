@@ -58,22 +58,27 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<EventDto> searBytype(String type) {
+    public List<EventDto> searchBytype(String type) {
         return List.of();
     }
 
     @Override
-    public List<EventDto> searBylocation(String location) {
+    public List<EventDto> searchBylocation(String location) {
         return List.of();
     }
 
     @Override
-    public List<EventDto> searBydate(LocalDate date) {
-        return List.of();
+    public List<EventDto> searchBydate(LocalDate date) {
+        List<EventEntity>entities=repository.findBydate(date);
+        ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
+        entities.forEach(eventEntity -> {
+            eventDtoArrayList.add(mapper.map(eventEntity, EventDto.class));
+        });
+        return eventDtoArrayList;
     }
 
     @Override
-    public List<EventDto> searBybudget(Double budget) {
+    public List<EventDto> searchBybudget(Double budget) {
         List<EventEntity>entities=repository.findBybudget(budget);
         ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
         entities.forEach(eventEntity -> {

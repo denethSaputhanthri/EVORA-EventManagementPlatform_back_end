@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -45,8 +46,15 @@ public class EventController {
     public EventDto searchByuserId(@PathVariable Integer userId){
         return service.searByuserId(userId);
     }
+
+    @GetMapping("/searchBydate/{date}")
+    public List<EventDto> searchBydate(LocalDate date){
+        return service.searchBydate(date) ;
+    }
+
     @GetMapping("/searchBybudget/{budget}")
     public List<EventDto> searchBybudget(Double budget){
-        return service.searBybudget(budget) ;
+        return service.searchBybudget(budget) ;
     }
+
 }

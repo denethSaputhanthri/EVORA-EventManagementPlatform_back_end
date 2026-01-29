@@ -12,8 +12,8 @@ public interface EventService {
     List<EventDto>getAllEventDetail();
     EventDto searchById(Integer eventId);
     EventDto searByuserId(Integer userId);
-    List<EventDto>searBytype(String type);
-    List<EventDto>searBylocation(String location);
-    List<EventDto>searBydate(LocalDate date);
-    List<EventDto>searBybudget(Double budget);
+    List<EventDto>searchBytype(String type);
+    List<EventDto>searchBylocation(String location);
+    List<EventDto>searchBydate(LocalDate date);
+    List<EventDto>searchBybudget(Double budget);
 }
