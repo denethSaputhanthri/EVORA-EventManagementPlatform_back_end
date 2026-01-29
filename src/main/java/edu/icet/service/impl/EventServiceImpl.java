@@ -49,7 +49,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventDto searchById(Integer eventId) {
-        return null;
+        return mapper.map(repository.findById(eventId).get(),EventDto.class) ;
     }
 
     @Override

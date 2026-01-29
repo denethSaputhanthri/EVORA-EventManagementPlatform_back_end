@@ -32,4 +32,8 @@ public class EventController {
     public void deleteEvent(Integer eventId){
         service.deleteEvent(eventId);
     }
+    @GetMapping("/searchById/{eventId}")
+    public EventDto searchById(@PathVariable Integer eventId){
+        return service.searchById(eventId);
+    }
 }
