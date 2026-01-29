@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(UserDto user) {
-
+        repository.save(mapper.map(user,UserEntity.class));
     }
 
     @Override

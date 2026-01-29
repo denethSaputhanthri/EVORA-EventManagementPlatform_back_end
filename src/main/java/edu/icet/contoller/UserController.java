@@ -24,4 +24,8 @@ public class UserController {
     public List<UserDto> getUserDetails(){
         return service.getUserDetails();
     }
+    @PutMapping("/update/details")
+    public void updateUserDetails(@RequestBody UserDto user){
+        service.updateUser(user);
+    }
 }
