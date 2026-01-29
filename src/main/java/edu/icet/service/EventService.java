@@ -11,7 +11,7 @@ public interface EventService {
     void deleteEvent(Integer eventId);
     List<EventDto>getAllEventDetail();
     EventDto searchById(Integer eventId);
-    List<EventDto>searByuserId(Integer userId);
+    EventDto searByuserId(Integer userId);
     List<EventDto>searBytype(String type);
     List<EventDto>searBylocation(String location);
     List<EventDto>searBydate(LocalDate date);

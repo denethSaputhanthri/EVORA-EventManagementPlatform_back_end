@@ -20,20 +20,29 @@ public class EventController {
     public void addEvent(@RequestBody EventDto event){
         service.addEvent(event);
     }
+
     @GetMapping("/get/details")
     public List<EventDto> getAllEvent(){
         return service.getAllEventDetail();
     }
+
     @PutMapping("/update/details")
     public void updateEvent(@RequestBody EventDto event){
         service.updateEvent(event);
     }
+
     @DeleteMapping("/delete/details")
     public void deleteEvent(Integer eventId){
         service.deleteEvent(eventId);
     }
+
     @GetMapping("/searchById/{eventId}")
     public EventDto searchById(@PathVariable Integer eventId){
         return service.searchById(eventId);
+    }
+
+    @GetMapping("/searchByuserId/{userId}")
+    public EventDto searchByuserId(@PathVariable Integer userId){
+        return service.searByuserId(userId);
     }
 }

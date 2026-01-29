@@ -53,8 +53,8 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<EventDto> searByuserId(Integer userId) {
-        return List.of();
+    public EventDto searByuserId(Integer userId) {
+        return mapper.map(repository.findByuserId(userId), EventDto.class);
     }
 
     @Override
