@@ -1,6 +1,7 @@
 package edu.icet.contoller;
 
 import edu.icet.dto.UserDto;
+import edu.icet.role.Role;
 import edu.icet.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -43,6 +44,10 @@ public class UserController {
     @GetMapping("/searchByEmail/{email}")
     public List<UserDto> searchByEmail(@PathVariable String email){
         return service.searchByEmail(email) ;
+    }
+    @GetMapping("/searchByRole/{role}")
+    public List<UserDto> searchByRole(@PathVariable Role role){
+        return service.searchByRole(role);
     }
 
 }

@@ -1,6 +1,7 @@
 package edu.icet.service;
 
 import edu.icet.dto.UserDto;
+import edu.icet.role.Role;
 
 import java.util.List;
 
@@ -12,5 +13,5 @@ public interface UserService {
     UserDto searchById(Integer userId);
     List<UserDto> searchByName(String name);
     List<UserDto> searchByEmail(String email);
-    UserDto searchByRole(Enum role);
+    List<UserDto> searchByRole(Role role);
 }

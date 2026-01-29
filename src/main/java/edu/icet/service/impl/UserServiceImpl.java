@@ -3,6 +3,7 @@ package edu.icet.service.impl;
 import edu.icet.dto.UserDto;
 import edu.icet.entity.UserEntity;
 import edu.icet.repository.UserRepository;
+import edu.icet.role.Role;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -72,8 +73,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto searchByRole(Enum role) {
-        return null;
+    public List<UserDto> searchByRole(Role role) {
+        List<UserEntity>entities=repository.findAllByrole(role);
+        ArrayList<UserDto>userDtoArrayList=new ArrayList<>();
+        entities.forEach(userEntity -> {
+           userDtoArrayList.add(mapper.map(userEntity, UserDto.class));
+        });
+        return userDtoArrayList;
     }
 }
 
