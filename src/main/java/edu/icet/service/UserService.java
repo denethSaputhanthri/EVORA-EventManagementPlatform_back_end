@@ -10,7 +10,7 @@ public interface UserService {
     void deleteUser(Integer userId);
     List<UserDto>getUserDetails();
     UserDto searchById(Integer userId);
-    UserDto searchByName(String name);
+    List<UserDto> searchByName(String name);
     UserDto searchByEmail(String email);
     UserDto searchByRole(Enum role);
 }

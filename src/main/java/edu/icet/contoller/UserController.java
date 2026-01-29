@@ -36,4 +36,8 @@ public class UserController {
     public UserDto searchById(@PathVariable Integer userId){
         return service.searchById(userId);
     }
+    @GetMapping("/searchByName/{name}")
+    public List<UserDto> searchByName(@PathVariable String name){
+        return service.searchByName(name);
+    }
 }

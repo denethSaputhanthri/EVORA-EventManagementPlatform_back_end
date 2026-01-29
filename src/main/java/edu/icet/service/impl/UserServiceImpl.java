@@ -46,13 +46,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto searchById(Integer userId) {
-        UserDto userDto=mapper.map(repository.findById(userId).get(), UserDto.class);
-        return userDto;
+        return mapper.map(repository.findById(userId).get(), UserDto.class);
     }
 
     @Override
-    public UserDto searchByName(String name) {
-        return null;
+    public List<UserDto> searchByName(String name) {
+        List<UserEntity>entities=repository.findAllByname(name);
+        ArrayList<UserDto>userDtoArrayList=new ArrayList<>();
+        entities.forEach(userEntity -> {
+            UserDto userDto=mapper.map(userEntity, UserDto.class);
+            userDtoArrayList.add(userDto);
+        });
+        return userDtoArrayList;
     }
 
     @Override
