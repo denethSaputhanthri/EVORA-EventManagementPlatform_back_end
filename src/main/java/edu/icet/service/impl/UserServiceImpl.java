@@ -61,8 +61,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto searchByEmail(String email) {
-        return null;
+    public List<UserDto> searchByEmail(String email) {
+        List<UserEntity>entities=repository.findAllByemail(email);
+        ArrayList<UserDto>userDtoArrayList=new ArrayList<>();
+        entities.forEach(userEntity -> {
+            UserDto userDto=mapper.map(userEntity, UserDto.class);
+            userDtoArrayList.add(userDto);
+        });
+        return userDtoArrayList;
     }
 
     @Override

@@ -11,6 +11,6 @@ public interface UserService {
     List<UserDto>getUserDetails();
     UserDto searchById(Integer userId);
     List<UserDto> searchByName(String name);
-    UserDto searchByEmail(String email);
+    List<UserDto> searchByEmail(String email);
     UserDto searchByRole(Enum role);
 }

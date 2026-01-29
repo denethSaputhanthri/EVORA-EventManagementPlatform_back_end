@@ -40,4 +40,9 @@ public class UserController {
     public List<UserDto> searchByName(@PathVariable String name){
         return service.searchByName(name);
     }
+    @GetMapping("/searchByEmail/{email}")
+    public List<UserDto> searchByEmail(@PathVariable String email){
+        return service.searchByEmail(email) ;
+    }
+
 }
