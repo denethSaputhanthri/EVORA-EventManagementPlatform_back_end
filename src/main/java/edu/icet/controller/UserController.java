@@ -1,4 +1,4 @@
-package edu.icet.contoller;
+package edu.icet.controller;
 
 import edu.icet.dto.UserDto;
 import edu.icet.role.Role;
