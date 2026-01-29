@@ -47,14 +47,17 @@ public class EventController {
         return service.searByuserId(userId);
     }
 
+    @GetMapping("/searchBytype/{type}")
+    public List<EventDto> searchBytype(String type){
+        return service.searchBytype(type) ;
+    }
     @GetMapping("/searchBydate/{date}")
     public List<EventDto> searchBydate(LocalDate date){
         return service.searchBydate(date) ;
     }
 
     @GetMapping("/searchBybudget/{budget}")
-    public List<EventDto> searchBybudget(Double budget){
-        return service.searchBybudget(budget) ;
+    public List<EventDto> searchBybudget(Double budget) {
+        return service.searchBybudget(budget);
     }
-
 }
