@@ -1,58 +1,73 @@
 package edu.icet.service.impl;
 
+import edu.icet.dto.EventDto;
 import edu.icet.dto.UserDto;
+import edu.icet.entity.EventEntity;
 import edu.icet.repository.EventRepository;
 import edu.icet.role.Role;
+import edu.icet.service.EventService;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
-public class EventServiceImpl implements UserService {
+public class EventServiceImpl implements EventService {
 
-    final EventRepository repository;
-    final ModelMapper mapper;
+     final EventRepository repository;
+     final ModelMapper mapper;
+
 
     @Override
-    public void addUser(UserDto user) {
+    public void addEvent(EventDto event) {
+        repository.save(mapper.map(event, EventEntity.class));
+    }
+
+    @Override
+    public void updateEvent(EventDto event) {
 
     }
 
     @Override
-    public void updateUser(UserDto user) {
+    public void deleteEvent(Integer eventId) {
 
     }
 
     @Override
-    public void deleteUser(Integer userId) {
-
-    }
-
-    @Override
-    public List<UserDto> getUserDetails() {
+    public List<EventDto> getAllEventDetail() {
         return List.of();
     }
 
     @Override
-    public UserDto searchById(Integer userId) {
+    public EventDto searchById(Integer eventId) {
         return null;
     }
 
     @Override
-    public List<UserDto> searchByName(String name) {
+    public List<EventDto> searByuserId(Integer userId) {
         return List.of();
     }
 
     @Override
-    public List<UserDto> searchByEmail(String email) {
+    public List<EventDto> searBytype(String type) {
         return List.of();
     }
 
     @Override
-    public List<UserDto> searchByRole(Role role) {
+    public List<EventDto> searBylocation(String location) {
+        return List.of();
+    }
+
+    @Override
+    public List<EventDto> searBydate(LocalDate date) {
+        return List.of();
+    }
+
+    @Override
+    public List<EventDto> searBybudget(Double budget) {
         return List.of();
     }
 }

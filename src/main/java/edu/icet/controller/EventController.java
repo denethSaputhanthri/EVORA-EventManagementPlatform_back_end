@@ -1,10 +1,10 @@
 package edu.icet.controller;
 
+import edu.icet.dto.EventDto;
 import edu.icet.service.EventService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,4 +14,8 @@ public class EventController {
 
     final EventService service;
 
+    @PostMapping("/add/details")
+    public void addEvent(@RequestBody EventDto event){
+        service.addEvent(event);
+    }
 }
