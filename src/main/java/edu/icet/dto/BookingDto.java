@@ -1,6 +1,7 @@
 package edu.icet.dto;
 
 import edu.icet.status.Status;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Table(name = "user")
 public class BookingDto {
     private Integer bookingId;
     private Integer eventId;
