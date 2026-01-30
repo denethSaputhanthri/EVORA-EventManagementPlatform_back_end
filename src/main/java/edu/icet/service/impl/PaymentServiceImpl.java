@@ -2,6 +2,8 @@ package edu.icet.service.impl;
 
 import edu.icet.Enum.Status;
 import edu.icet.dto.PaymentDto;
+import edu.icet.entity.PaymentEntity;
+import edu.icet.repository.PaymentRepository;
 import edu.icet.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -13,12 +15,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
 
-    final PaymentService service;
+    final PaymentRepository repository;
     final ModelMapper mapper;
 
     @Override
     public void addPayment(PaymentDto payment) {
-
+        repository.save(mapper.map(payment, PaymentEntity.class));
     }
 
     @Override
