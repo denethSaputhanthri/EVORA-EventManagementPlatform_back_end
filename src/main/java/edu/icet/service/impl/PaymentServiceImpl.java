@@ -71,7 +71,12 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public List<PaymentDto> searchBystatus(Status status) {
-        return List.of();
+        List<PaymentEntity>entities=repository.findByStatus(status);
+        ArrayList<PaymentDto>paymentDtoArrayList=new ArrayList<>();
+        entities.forEach(paymentEntity -> {
+            paymentDtoArrayList.add(mapper.map(paymentEntity, PaymentDto.class));
+        });
+        return paymentDtoArrayList;
     }
 
     @Override

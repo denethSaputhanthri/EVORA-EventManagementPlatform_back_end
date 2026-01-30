@@ -1,5 +1,6 @@
 package edu.icet.controller;
 
+import edu.icet.Enum.Status;
 import edu.icet.dto.PaymentDto;
 import edu.icet.service.PaymentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -49,5 +50,10 @@ public class PaymentController {
     @GetMapping("/searchByPaymentMethod/{paymentMethod}")
     private List<PaymentDto> searchByPaymentMethod(@PathVariable String paymentMethod){
         return service.searchBypaymentMethod(paymentMethod);
+    }
+
+    @GetMapping("/searchByStatus/{status}")
+    private List<PaymentDto> searchByStatus(@PathVariable Status status){
+        return service.searchBystatus(status);
     }
 }
