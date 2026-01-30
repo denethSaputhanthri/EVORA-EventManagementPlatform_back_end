@@ -1,6 +1,6 @@
 package edu.icet.entity;
 
-import edu.icet.role.Role;
+import edu.icet.Enum.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
