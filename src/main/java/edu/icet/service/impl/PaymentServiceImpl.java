@@ -36,7 +36,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public PaymentDto searchById(Integer paymentId) {
-        return null;
+        return mapper.map(repository.findById(paymentId).get(), PaymentDto.class);
     }
 
     @Override

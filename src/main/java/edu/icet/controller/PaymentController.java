@@ -35,4 +35,8 @@ public class PaymentController {
     public List<PaymentDto> getAllPaymentDetails(){
         return service.getAllPaymentDetails();
     }
+    @GetMapping("/searchById/{paymentId}")
+    private PaymentDto searchById(@PathVariable Integer paymentId){
+        return service.searchById(paymentId);
+    }
 }
