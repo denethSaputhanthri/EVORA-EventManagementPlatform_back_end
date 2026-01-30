@@ -4,8 +4,9 @@ import edu.icet.dto.PaymentDto;
 import edu.icet.service.PaymentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,7 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaymentController {
 
     final PaymentService service;
-    private void addPayment(PaymentDto payment){
+    @PostMapping("/add/details")
+    private void addPayment(@RequestBody PaymentDto payment){
         service.addPayment(payment);
+    }
+    @GetMapping("/getAll/details")
+    public List<PaymentDto> getAllPaymentDetails(){
+        return service.getAllPaymentDetails();
     }
 }

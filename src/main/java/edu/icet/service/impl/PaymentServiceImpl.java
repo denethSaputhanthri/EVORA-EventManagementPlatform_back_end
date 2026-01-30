@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -40,7 +41,12 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public List<PaymentDto> getAllPaymentDetails() {
-        return List.of();
+        List<PaymentEntity>entities=repository.findAll();
+        ArrayList<PaymentDto>paymentDtoArrayList=new ArrayList<>();
+        entities.forEach(paymentEntity -> {
+            paymentDtoArrayList.add(mapper.map(paymentEntity, PaymentDto.class));
+        });
+        return paymentDtoArrayList;
     }
 
     @Override
