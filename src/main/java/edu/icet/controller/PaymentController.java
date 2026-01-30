@@ -26,6 +26,11 @@ public class PaymentController {
         service.updatePayment(payment);;
     }
 
+    @DeleteMapping("/delete/details")
+    public void deletePayment(Integer paymentId){
+        service.deletePayment(paymentId);
+    }
+
     @GetMapping("/getAll/details")
     public List<PaymentDto> getAllPaymentDetails(){
         return service.getAllPaymentDetails();
