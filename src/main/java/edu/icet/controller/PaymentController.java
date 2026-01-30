@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -60,5 +61,10 @@ public class PaymentController {
     @GetMapping("/searchByBookingId/{bookingId}")
     private PaymentDto searchByBookingId(@PathVariable Integer bookingId){
         return service.searchBybookingId(bookingId);
+    }
+
+    @GetMapping("/searchByTransactionDate/{transaction}")
+    private List<PaymentDto> searchByTransaction(@PathVariable LocalDate transaction){
+        return service.searchBytransactionDate(transaction);
     }
 }
