@@ -15,10 +15,17 @@ import java.util.List;
 public class PaymentController {
 
     final PaymentService service;
+
     @PostMapping("/add/details")
     private void addPayment(@RequestBody PaymentDto payment){
         service.addPayment(payment);
     }
+
+    @PutMapping("/update/details")
+    private void updatePayment(@RequestBody PaymentDto payment){
+        service.updatePayment(payment);;
+    }
+
     @GetMapping("/getAll/details")
     public List<PaymentDto> getAllPaymentDetails(){
         return service.getAllPaymentDetails();

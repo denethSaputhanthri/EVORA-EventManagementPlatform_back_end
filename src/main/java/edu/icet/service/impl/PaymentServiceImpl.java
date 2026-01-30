@@ -26,7 +26,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public void updatePayment(PaymentDto payment) {
-
+        repository.save(mapper.map(payment, PaymentEntity.class));
     }
 
     @Override
