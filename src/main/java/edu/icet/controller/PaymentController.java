@@ -45,4 +45,9 @@ public class PaymentController {
     private List<PaymentDto> searchByAmount(@PathVariable Double amount){
         return service.searchByamount(amount);
     }
+
+    @GetMapping("/searchByPaymentMethod/{paymentMethod}")
+    private List<PaymentDto> searchByPaymentMethod(@PathVariable String paymentMethod){
+        return service.searchBypaymentMethod(paymentMethod);
+    }
 }

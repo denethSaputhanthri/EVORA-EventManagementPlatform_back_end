@@ -61,7 +61,12 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public List<PaymentDto> searchBypaymentMethod(String paymentMethod) {
-        return List.of();
+        List<PaymentEntity>entities=repository.findByPaymentMethod(paymentMethod);
+        ArrayList<PaymentDto>paymentDtoArrayList=new ArrayList<>();
+        entities.forEach(paymentEntity -> {
+            paymentDtoArrayList.add(mapper.map(paymentEntity, PaymentDto.class));
+        });
+        return paymentDtoArrayList;
     }
 
     @Override
