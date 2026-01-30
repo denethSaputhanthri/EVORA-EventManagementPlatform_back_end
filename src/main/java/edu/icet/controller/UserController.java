@@ -1,7 +1,7 @@
 package edu.icet.controller;
 
 import edu.icet.dto.UserDto;
-import edu.icet.role.Role;
+import edu.icet.Enum.Role;
 import edu.icet.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
