@@ -10,4 +10,5 @@ public interface PaymentRepository extends JpaRepository<PaymentEntity,Integer> 
     List<PaymentEntity> findByAmount(Double amount);
     List<PaymentEntity> findByPaymentMethod(String paymentMethod);
     List<PaymentEntity> findByStatus(Status status);
+    PaymentEntity findByBookingId(Integer bookingId);
 }

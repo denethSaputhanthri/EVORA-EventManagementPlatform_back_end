@@ -56,4 +56,9 @@ public class PaymentController {
     private List<PaymentDto> searchByStatus(@PathVariable Status status){
         return service.searchBystatus(status);
     }
+
+    @GetMapping("/searchByBookingId/{bookingId}")
+    private PaymentDto searchByBookingId(@PathVariable Integer bookingId){
+        return service.searchBybookingId(bookingId);
+    }
 }
