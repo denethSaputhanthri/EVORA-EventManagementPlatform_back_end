@@ -1,12 +1,9 @@
 package edu.icet.service.impl;
 
 import edu.icet.dto.EventDto;
-import edu.icet.dto.UserDto;
 import edu.icet.entity.EventEntity;
 import edu.icet.repository.EventRepository;
-import edu.icet.role.Role;
 import edu.icet.service.EventService;
-import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
