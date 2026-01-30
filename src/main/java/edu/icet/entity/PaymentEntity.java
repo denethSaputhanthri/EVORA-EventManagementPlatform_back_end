@@ -1,8 +1,7 @@
 package edu.icet.entity;
 
 import edu.icet.Enum.Status;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +15,8 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "payment")
 public class PaymentEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer paymentId;
     private Integer bookingId;
     private Double amount;
