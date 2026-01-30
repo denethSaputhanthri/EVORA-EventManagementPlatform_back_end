@@ -3,11 +3,19 @@ package edu.icet.service.impl;
 import edu.icet.Enum.Status;
 import edu.icet.dto.PaymentDto;
 import edu.icet.service.PaymentService;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-
+@Service
+@RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
+
+    final PaymentService service;
+    final ModelMapper mapper;
+
     @Override
     public void addPayment(PaymentDto payment) {
 
