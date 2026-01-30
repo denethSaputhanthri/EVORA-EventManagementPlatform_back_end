@@ -1,0 +1,20 @@
+package edu.icet.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.time.LocalDate;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class MessageDto {
+    private Integer messageId;
+    private Integer senderId;
+    private Integer receiverId;
+    private String content;
+    private LocalDate sentAt;
+}
