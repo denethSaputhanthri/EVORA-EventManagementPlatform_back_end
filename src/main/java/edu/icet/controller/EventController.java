@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/Event")
 @Tag(name = "Event-Controller",description = "Event API Collection...")
+@CrossOrigin (origins = "http://127.0.0.1:5501")
 public class EventController {
 
     final EventService service;
@@ -48,22 +49,22 @@ public class EventController {
     }
 
     @GetMapping("/searchBylocation/{location}")
-    public List<EventDto> searchBylocation(String location){
+    public List<EventDto> searchBylocation(@PathVariable String location){
         return service.searchBylocation(location) ;
     }
 
     @GetMapping("/searchBytype/{type}")
-    public List<EventDto> searchBytype(String type) {
+    public List<EventDto> searchBytype(@PathVariable String type) {
         return service.searchBytype(type);
     }
 
     @GetMapping("/searchBydate/{date}")
-    public List<EventDto> searchBydate(LocalDate date){
+    public List<EventDto> searchBydate(@PathVariable LocalDate date){
         return service.searchBydate(date) ;
     }
 
     @GetMapping("/searchBybudget/{budget}")
-    public List<EventDto> searchBybudget(Double budget) {
+    public List<EventDto> searchBybudget(@PathVariable Double budget) {
         return service.searchBybudget(budget);
     }
 }
