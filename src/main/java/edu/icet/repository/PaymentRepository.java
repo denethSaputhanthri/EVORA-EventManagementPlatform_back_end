@@ -1,6 +1,6 @@
 package edu.icet.repository;
 
-import edu.icet.Enum.Status;
+import edu.icet.utill.Status;
 import edu.icet.entity.PaymentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 

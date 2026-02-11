@@ -1,7 +1,7 @@
 package edu.icet.repository;
 
 import edu.icet.entity.UserEntity;
-import edu.icet.Enum.Role;
+import edu.icet.utill.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

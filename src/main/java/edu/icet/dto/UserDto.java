@@ -1,6 +1,6 @@
 package edu.icet.dto;
 
-import edu.icet.Enum.Role;
+import edu.icet.utill.Role;
 import lombok.Getter;
 import lombok.Setter;
 

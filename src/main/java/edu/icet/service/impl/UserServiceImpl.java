@@ -3,7 +3,7 @@ package edu.icet.service.impl;
 import edu.icet.dto.UserDto;
 import edu.icet.entity.UserEntity;
 import edu.icet.repository.UserRepository;
-import edu.icet.Enum.Role;
+import edu.icet.utill.Role;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

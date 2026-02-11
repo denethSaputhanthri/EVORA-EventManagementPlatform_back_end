@@ -1,6 +1,6 @@
 package edu.icet.dto;
 
-import edu.icet.Enum.Status;
+import edu.icet.utill.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

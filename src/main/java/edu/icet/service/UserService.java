@@ -1,7 +1,7 @@
 package edu.icet.service;
 
 import edu.icet.dto.UserDto;
-import edu.icet.Enum.Role;
+import edu.icet.utill.Role;
 
 import java.util.List;
 
