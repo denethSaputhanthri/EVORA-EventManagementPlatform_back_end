@@ -115,6 +115,3 @@ CREATE TABLE booking_service(
     FOREIGN KEY (booking_id) REFERENCES booking(booking_id),
     FOREIGN KEY(service_id) REFERENCES service(service_id)
 );
-
-
-

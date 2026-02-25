@@ -12,43 +12,45 @@ import java.util.List;
 @Service
 public class WishlistServiceImpl implements WishlistService {
 
+    final private WishlistService wishlistService;
+
     @Override
     public void addWishlist(Wishlist wishlist) {
-
+        wishlistService.addWishlist(wishlist);
     }
 
     @Override
     public void updateWishlist(Wishlist wishlist) {
-
+        wishlistService.updateWishlist(wishlist);
     }
 
     @Override
     public void deleteWishlist(Integer id) {
-
+        wishlistService.deleteWishlist(id);
     }
 
     @Override
     public Wishlist searchWishlistById(Integer id) {
-        return null;
+        return wishlistService.searchWishlistById(id);
     }
 
     @Override
     public List<Wishlist> getAllWishlist() {
-        return List.of();
+        return wishlistService.getAllWishlist();
     }
 
     @Override
     public List<Wishlist> searchWishlistByUser(Integer userId) {
-        return List.of();
+        return wishlistService.searchWishlistByUser(userId);
     }
 
     @Override
     public List<Wishlist> searchWishlistByService(Integer serviceId) {
-        return List.of();
+        return wishlistService.searchWishlistByService(serviceId);
     }
 
     @Override
     public List<Wishlist> searchWishlistByTime(LocalDateTime time) {
-        return List.of();
+        return wishlistService.searchWishlistByTime(time);
     }
 }

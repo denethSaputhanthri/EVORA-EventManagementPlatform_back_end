@@ -11,48 +11,50 @@ import java.util.List;
 @Service
 public class ServicesServiceImpl implements ServicesService {
 
+    final private ServicesService servicesService;
+
     @Override
     public void addService(Services services) {
-
+        servicesService.addService(services);
     }
 
     @Override
     public void updateService(Services services) {
-
+        servicesService.updateService(services);
     }
 
     @Override
     public void deleteService(Integer id) {
-
+        servicesService.deleteService(id);
     }
 
     @Override
     public Services searchServiceById(Integer id) {
-        return null;
+        return servicesService.searchServiceById(id);
     }
 
     @Override
     public List<Services> searchServiceByName(String name) {
-        return List.of();
+        return servicesService.searchServiceByName(name);
     }
 
     @Override
     public List<Services> searchServiceByPrice(Double price) {
-        return List.of();
+        return servicesService.searchServiceByPrice(price);
     }
 
     @Override
     public List<Services> getAllServices() {
-        return List.of();
+        return servicesService.getAllServices();
     }
 
     @Override
     public List<Services> getAllServicesByName(String name) {
-        return List.of();
+        return servicesService.getAllServicesByName(name);
     }
 
     @Override
     public List<Services> getAllServicesByVendor(Integer id) {
-        return List.of();
+        return servicesService.getAllServicesByVendor(id);
     }
 }
