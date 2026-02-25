@@ -1,4 +1,6 @@
 package edu.icet.repository.impl;
 
-public class WishlistRepositoryImpl {
+import edu.icet.repository.WishlistRepository;
+
+public class WishlistRepositoryImpl implements WishlistRepository {
 }

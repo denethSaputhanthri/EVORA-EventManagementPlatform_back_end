@@ -1,4 +1,6 @@
 package edu.icet.repository.impl;
 
-public class UserRepositoryImpl {
+import edu.icet.repository.UserRepository;
+
+public class UserRepositoryImpl implements UserRepository {
 }
