@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
@@ -15,5 +15,5 @@ public class Wishlist {
     private Integer wishlistId;
     private Integer userId;
     private Integer serviceId;
-    private LocalDateTime addedAt;
+    private Timestamp addedAt;
 }
