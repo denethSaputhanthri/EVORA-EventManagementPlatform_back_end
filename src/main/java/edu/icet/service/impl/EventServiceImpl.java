@@ -1,6 +1,7 @@
 package edu.icet.service.impl;
 
 import edu.icet.model.Event;
+import edu.icet.repository.EventRepository;
 import edu.icet.service.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,53 +13,55 @@ import java.util.List;
 @Service
 public class EventServiceImpl implements EventService {
 
+    final EventRepository eventRepository;
+
     @Override
     public void addEvent(Event event) {
-
+        eventRepository.addEvent(event);
     }
 
     @Override
     public void updateEvent(Event event) {
-
+        eventRepository.updateEvent(event);
     }
 
     @Override
     public void deleteEvent(Integer eventId) {
-
+        eventRepository.deleteEvent(eventId);
     }
 
     @Override
-    public List<Event> getAllEventDetail() {
-        return List.of();
+    public List<Event> getAllEventDetail(){
+        return eventRepository.getAllEventDetail();
     }
 
     @Override
     public Event searchById(Integer eventId) {
-        return null;
+        return eventRepository.searchById(eventId);
     }
 
     @Override
     public Event searByuserId(Integer userId) {
-        return null;
+        return eventRepository.searByuserId(userId);
     }
 
     @Override
     public List<Event> searchBytype(String type) {
-        return List.of();
+        return eventRepository.searchBytype(type);
     }
 
     @Override
     public List<Event> searchBylocation(String location) {
-        return List.of();
+        return eventRepository.searchBylocation(location);
     }
 
     @Override
     public List<Event> searchBydate(LocalDate date) {
-        return List.of();
+        return eventRepository.searchBydate(date);
     }
 
     @Override
     public List<Event> searchBybudget(Double budget) {
-        return List.of();
+        return eventRepository.searchBybudget(budget);
     }
 }
