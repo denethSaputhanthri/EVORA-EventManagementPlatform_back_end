@@ -1,17 +1,17 @@
 package edu.icet.service;
 
-import edu.icet.dto.ServicesDto;
+import edu.icet.model.Services;
 
 import java.util.List;
 
 public interface ServicesService {
-    void addService(ServicesDto servicesDto);
-    void updateService(ServicesDto servicesDto);
+    void addService(Services services);
+    void updateService(Services services);
     void deleteService(Integer id);
-    ServicesDto searchServiceById(Integer id);
-    List<ServicesDto> searchServiceByName(String name);
-    List<ServicesDto> searchServiceByPrice(Double price);
-    List<ServicesDto> getAllServices();
-    List<ServicesDto> getAllServicesByName(String name);
-    List<ServicesDto> getAllServicesByVendor(Integer id);
+    Services searchServiceById(Integer id);
+    List<Services> searchServiceByName(String name);
+    List<Services> searchServiceByPrice(Double price);
+    List<Services> getAllServices();
+    List<Services> getAllServicesByName(String name);
+    List<Services> getAllServicesByVendor(Integer id);
 }

@@ -4,6 +4,6 @@ spring:
     username: root
     password: 20031207
 
-  jpa:
-    hibernate:
-      ddl-auto: create
+  flyway:
+    enabled: true
+    baseline-on-migrate: true

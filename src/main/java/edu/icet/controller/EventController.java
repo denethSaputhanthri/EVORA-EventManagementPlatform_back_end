@@ -1,6 +1,6 @@
 package edu.icet.controller;
 
-import edu.icet.dto.EventDto;
+import edu.icet.model.Event;
 import edu.icet.service.EventService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -19,17 +19,17 @@ public class EventController {
     final EventService service;
 
     @PostMapping("/add/details")
-    public void addEvent(@RequestBody EventDto event){
+    public void addEvent(@RequestBody Event event){
         service.addEvent(event);
     }
 
     @GetMapping("/get/details")
-    public List<EventDto> getAllEvent(){
+    public List<Event> getAllEvent(){
         return service.getAllEventDetail();
     }
 
     @PutMapping("/update/details")
-    public void updateEvent(@RequestBody EventDto event){
+    public void updateEvent(@RequestBody Event event){
         service.updateEvent(event);
     }
 
@@ -39,32 +39,32 @@ public class EventController {
     }
 
     @GetMapping("/searchById/{eventId}")
-    public EventDto searchById(@PathVariable Integer eventId){
+    public Event searchById(@PathVariable Integer eventId){
         return service.searchById(eventId);
     }
 
     @GetMapping("/searchByuserId/{userId}")
-    public EventDto searchByuserId(@PathVariable Integer userId){
+    public Event searchByuserId(@PathVariable Integer userId){
         return service.searByuserId(userId);
     }
 
     @GetMapping("/searchBylocation/{location}")
-    public List<EventDto> searchBylocation(@PathVariable String location){
+    public List<Event> searchBylocation(@PathVariable String location){
         return service.searchBylocation(location) ;
     }
 
     @GetMapping("/searchBytype/{type}")
-    public List<EventDto> searchBytype(@PathVariable String type) {
+    public List<Event> searchBytype(@PathVariable String type) {
         return service.searchBytype(type);
     }
 
     @GetMapping("/searchBydate/{date}")
-    public List<EventDto> searchBydate(@PathVariable LocalDate date){
+    public List<Event> searchBydate(@PathVariable LocalDate date){
         return service.searchBydate(date) ;
     }
 
     @GetMapping("/searchBybudget/{budget}")
-    public List<EventDto> searchBybudget(@PathVariable Double budget) {
+    public List<Event> searchBybudget(@PathVariable Double budget) {
         return service.searchBybudget(budget);
     }
 }
