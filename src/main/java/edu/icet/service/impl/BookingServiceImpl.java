@@ -2,6 +2,7 @@ package edu.icet.service.impl;
 
 
 import edu.icet.model.Booking;
+import edu.icet.repository.BookingRepository;
 import edu.icet.service.BookingService;
 import edu.icet.util.Status;
 import lombok.RequiredArgsConstructor;
@@ -13,48 +14,52 @@ import java.util.List;
 @Service
 public class BookingServiceImpl implements BookingService {
 
+    final BookingRepository bookingRepository;
+
     @Override
     public void addBooking(Booking booking) {
-
+        bookingRepository.addBooking(booking);
     }
 
     @Override
     public void updateBooking(Booking booking) {
+        bookingRepository.updateBooking(booking);
 
     }
 
     @Override
     public void deleteBooking(Integer id) {
+        bookingRepository.deleteBooking(id);
 
     }
 
     @Override
     public List<Booking> getAllBooking() {
-        return List.of();
+        return bookingRepository.getAllBooking();
     }
 
     @Override
     public Booking searchBookingById(Integer id) {
-        return null;
+        return bookingRepository.searchBookingById(id);
     }
 
     @Override
     public List<Booking> searchBookingByEvent(Integer eventId) {
-        return List.of();
+        return bookingRepository.searchBookingByEvent(eventId);
     }
 
     @Override
     public List<Booking> searchBookingByService(Integer serviceId) {
-        return List.of();
+        return bookingRepository.searchBookingByService(serviceId);
     }
 
     @Override
     public List<Booking> searchBookingByStatus(Status status) {
-        return List.of();
+        return bookingRepository.searchBookingByStatus(status);
     }
 
     @Override
     public List<Booking> searchBookingByPrice(Double price) {
-        return List.of();
+        return bookingRepository.searchBookingByPrice(price);
     }
 }
