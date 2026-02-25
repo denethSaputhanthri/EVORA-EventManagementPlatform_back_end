@@ -1,4 +1,6 @@
 package edu.icet.repository.impl;
 
-public class ReviewRepositoryImpl {
+import edu.icet.repository.ReviewRepository;
+
+public class ReviewRepositoryImpl implements ReviewRepository {
 }

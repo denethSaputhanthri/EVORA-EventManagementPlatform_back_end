@@ -1,4 +1,6 @@
 package edu.icet.repository.impl;
 
-public class VendorRepositoryImpl {
+import edu.icet.repository.VendorRepository;
+
+public class VendorRepositoryImpl implements VendorRepository {
 }

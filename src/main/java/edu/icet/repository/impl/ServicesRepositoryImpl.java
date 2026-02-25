@@ -1,4 +1,6 @@
 package edu.icet.repository.impl;
 
-public class ServicesRepositoryImpl {
+import edu.icet.repository.ServicesRepository;
+
+public class ServicesRepositoryImpl implements ServicesRepository {
 }
