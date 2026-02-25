@@ -1,8 +1,8 @@
 package edu.icet.controller;
 
-import edu.icet.dto.BookingDto;
+import edu.icet.util.Status;
+import edu.icet.model.Booking;
 import edu.icet.service.BookingService;
-import edu.icet.status.Status;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,13 +18,13 @@ public class BookingController {
     final BookingService service;
 
     @PostMapping("/add")
-    public void addBooking(@RequestBody BookingDto bookingDto){
-        service.addBooking(bookingDto);
+    public void addBooking(@RequestBody Booking booking){
+        service.addBooking(booking);
     }
 
     @PutMapping("/update")
-    public void updateBooking(@RequestBody BookingDto bookingDto){
-        service.updateBooking(bookingDto);
+    public void updateBooking(@RequestBody Booking booking){
+        service.updateBooking(booking);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -33,37 +33,32 @@ public class BookingController {
     }
 
     @GetMapping("/search-all")
-    public List<BookingDto> getAllBooking(){
+    public List<Booking> getAllBooking(){
         return service.getAllBooking();
     }
 
     @GetMapping("/search/{id}")
-    public BookingDto searchBookingById(@PathVariable Integer id){
+    public Booking searchBookingById(@PathVariable Integer id){
         return service.searchBookingById(id);
     }
 
     @GetMapping("/search-by-event/{eventId}")
-    public List<BookingDto> searchBookingByEvent(@PathVariable Integer eventId){
+    public List<Booking> searchBookingByEvent(@PathVariable Integer eventId){
         return service.searchBookingByEvent(eventId);
     }
 
     @GetMapping("/search-by-service/{serviceId}")
-    public List<BookingDto> searchBookingByService(@PathVariable Integer serviceId){
+    public List<Booking> searchBookingByService(@PathVariable Integer serviceId){
         return service.searchBookingByService(serviceId);
     }
 
     @GetMapping("/search-by-status/{status}")
-    public List<BookingDto> searchBookingByStatus(@PathVariable Status status){
+    public List<Booking> searchBookingByStatus(@PathVariable Status status){
         return service.searchBookingByStatus(status);
     }
 
-    @GetMapping("/seach-by-price/{price}")
-    public List<BookingDto> searchBookingByPrice(@PathVariable Double price){
+    @GetMapping("/search-by-price/{price}")
+    public List<Booking> searchBookingByPrice(@PathVariable Double price){
         return service.searchBookingByPrice(price);
     }
-
-
-
-
-
 }

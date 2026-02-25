@@ -1,6 +1,6 @@
 package edu.icet.controller;
 
-import edu.icet.dto.CategoryDto;
+import edu.icet.model.Category;
 import edu.icet.service.CategoryService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +18,13 @@ public class CategoryController {
     final CategoryService service;
 
     @PostMapping("/add")
-    public void addCategory(@RequestBody CategoryDto categoryDto){
-        service.addCategory(categoryDto);
+    public void addCategory(@RequestBody Category category){
+        service.addCategory(category);
     }
 
     @PutMapping("/update")
-    public void updateCategory(@RequestBody CategoryDto categoryDto){
-        service.updateCategory(categoryDto);
+    public void updateCategory(@RequestBody Category category){
+        service.updateCategory(category);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -33,17 +33,17 @@ public class CategoryController {
     }
 
     @GetMapping("/search")
-    public List<CategoryDto> getAllCategory(){
+    public List<Category> getAllCategory(){
         return service.getAllCategory();
     }
 
     @GetMapping("/search-by-name/{name}")
-    public CategoryDto searchCategoryByName(@PathVariable String name){
+    public Category searchCategoryByName(@PathVariable String name){
         return service.searchCategoryByName(name);
     }
 
     @GetMapping("/search-by-id/{userId}")
-    public CategoryDto searchCategoryById(@PathVariable Integer userId){
+    public Category searchCategoryById(@PathVariable Integer userId){
         return service.searchCategoryById(userId);
     }
 
