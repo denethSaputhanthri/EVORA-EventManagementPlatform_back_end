@@ -10,11 +10,12 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/service")
+@RequestMapping("service")
 @Tag(name = "Service-Controller",description = "Service API Collection")
 public class ServiceController {
 
-    final ServicesService service;
+
+    final private ServicesService service;
 
     @PostMapping("/add")
     public void addService(@RequestBody Services services){
