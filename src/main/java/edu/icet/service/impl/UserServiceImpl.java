@@ -1,6 +1,7 @@
 package edu.icet.service.impl;
 
 import edu.icet.model.User;
+import edu.icet.repository.UserRepository;
 import edu.icet.service.UserService;
 import edu.icet.util.Role;
 import lombok.RequiredArgsConstructor;
@@ -12,44 +13,46 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+    final private UserRepository userRepository;
+
     @Override
     public void addUser(User user) {
-
+        userRepository.addUser(user);
     }
 
     @Override
     public void updateUser(User user) {
-
+        userRepository.updateUser(user);
     }
 
     @Override
     public void deleteUser(Integer userId) {
-
+        userRepository.deleteUser(userId);
     }
 
     @Override
     public List<User> getUserDetails() {
-        return List.of();
+        return userRepository.getUserDetails();
     }
 
     @Override
     public User searchById(Integer userId) {
-        return null;
+        return userRepository.searchById(userId);
     }
 
     @Override
     public List<User> searchByName(String name) {
-        return List.of();
+        return userRepository.searchByName(name);
     }
 
     @Override
     public List<User> searchByEmail(String email) {
-        return List.of();
+        return userRepository.searchByEmail(email);
     }
 
     @Override
     public List<User> searchByRole(Role role) {
-        return List.of();
+        return userRepository.searchByRole(role);
     }
 }
 
