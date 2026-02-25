@@ -36,6 +36,7 @@ public class WishlistRepositoryImpl implements WishlistRepository {
                 wishlist.getAddedAt(),
                 wishlist.getWishlistId()
                 )>0;
+
     }
 
     @Override
