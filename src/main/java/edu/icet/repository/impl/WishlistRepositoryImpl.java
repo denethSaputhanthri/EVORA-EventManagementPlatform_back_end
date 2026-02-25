@@ -73,7 +73,7 @@ public class WishlistRepositoryImpl implements WishlistRepository {
 
     @Override
     public List<Wishlist> searchWishlistByUser(Integer userId) {
-        String sql="SELECT * FROM wishlist user_id=?";
+        String sql="SELECT * FROM wishlist WHERE user_id=?";
         List<Wishlist>wishlistList=new ArrayList<>();
         jdbcTemplate.query(sql,(rs, rowNum) -> {
             Wishlist wishlist =new Wishlist();
@@ -88,7 +88,7 @@ public class WishlistRepositoryImpl implements WishlistRepository {
 
     @Override
     public List<Wishlist> searchWishlistByService(Integer serviceId) {
-        String sql="SELECT * FROM wishlist service_id=?";
+        String sql="SELECT * FROM wishlist WHERE service_id=?";
         List<Wishlist>wishlistList=new ArrayList<>();
         jdbcTemplate.query(sql,(rs, rowNum) -> {
             Wishlist wishlist =new Wishlist();
@@ -103,7 +103,7 @@ public class WishlistRepositoryImpl implements WishlistRepository {
 
     @Override
     public List<Wishlist> searchWishlistByTime(LocalDateTime time) {
-        String sql="SELECT * FROM wishlist added_at=?";
+        String sql="SELECT * FROM wishlist WHERE added_at=?";
         List<Wishlist>wishlistList=new ArrayList<>();
         jdbcTemplate.query(sql,(rs, rowNum) -> {
             Wishlist wishlist =new Wishlist();
