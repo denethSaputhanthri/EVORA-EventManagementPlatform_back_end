@@ -1,6 +1,6 @@
 package edu.icet.controller;
 
-import edu.icet.dto.WishlistDto;
+import edu.icet.model.Wishlist;
 import edu.icet.service.WishlistService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +18,13 @@ public class WishlistController {
     final WishlistService service;
 
     @PostMapping("/add")
-    public void addWishlist(@RequestBody WishlistDto wishlistDto){
-        service.addWishlist(wishlistDto);
+    public void addWishlist(@RequestBody Wishlist wishlist){
+        service.addWishlist(wishlist);
     }
 
     @PutMapping("/update")
-    public void updateWishlist(@RequestBody WishlistDto wishlistDto){
-        service.updateWishlist(wishlistDto);
+    public void updateWishlist(@RequestBody Wishlist wishlist){
+        service.updateWishlist(wishlist);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -33,27 +33,27 @@ public class WishlistController {
     }
 
     @GetMapping("/search/{id}")
-    public WishlistDto searchWishlistById(@PathVariable Integer id){
+    public Wishlist searchWishlistById(@PathVariable Integer id){
         return service.searchWishlistById(id);
     }
 
     @GetMapping("/search")
-    public List<WishlistDto> getAllWishlist(){
+    public List<Wishlist> getAllWishlist(){
         return service.getAllWishlist();
     }
 
     @GetMapping("/search-by-user/{userId}")
-    public List<WishlistDto> searchWishlistByUser(@PathVariable Integer userId){
+    public List<Wishlist> searchWishlistByUser(@PathVariable Integer userId){
         return service.searchWishlistByUser(userId);
     }
 
     @GetMapping("/search-by-service/{serviceId}")
-    public List<WishlistDto> searchWishlistByService(@PathVariable Integer serviceId){
+    public List<Wishlist> searchWishlistByService(@PathVariable Integer serviceId){
         return service.searchWishlistByService(serviceId);
     }
 
     @GetMapping("/search-by-time/{time}")
-    public List<WishlistDto> searchWishlistByTime(@PathVariable LocalDateTime time){
+    public List<Wishlist> searchWishlistByTime(@PathVariable LocalDateTime time){
         return service.searchWishlistByTime(time);
     }
 }

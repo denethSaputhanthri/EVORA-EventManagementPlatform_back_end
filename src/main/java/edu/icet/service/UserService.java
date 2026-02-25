@@ -1,17 +1,17 @@
 package edu.icet.service;
 
-import edu.icet.dto.UserDto;
-import edu.icet.Enum.Role;
+import edu.icet.model.User;
+import edu.icet.util.Role;
 
 import java.util.List;
 
 public interface UserService {
-    void addUser(UserDto user);
-    void updateUser(UserDto user);
+    void addUser(User user);
+    void updateUser(User user);
     void deleteUser(Integer userId);
-    List<UserDto>getUserDetails();
-    UserDto searchById(Integer userId);
-    List<UserDto> searchByName(String name);
-    List<UserDto> searchByEmail(String email);
-    List<UserDto> searchByRole(Role role);
+    List<User>getUserDetails();
+    User searchById(Integer userId);
+    List<User> searchByName(String name);
+    List<User> searchByEmail(String email);
+    List<User> searchByRole(Role role);
 }

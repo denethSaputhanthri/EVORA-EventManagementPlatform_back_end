@@ -1,6 +1,6 @@
 package edu.icet.controller;
 
-import edu.icet.dto.ReviewDto;
+import edu.icet.model.Review;
 import edu.icet.service.ReviewService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +18,13 @@ public class ReviewController {
     final ReviewService service;
 
     @PostMapping("/add")
-    public void addReview(@RequestBody ReviewDto reviewDto){
-        service.addReview(reviewDto);
+    public void addReview(@RequestBody Review review){
+        service.addReview(review);
     }
 
     @PutMapping("/update")
-    public void updateReview(@RequestBody ReviewDto reviewDto){
-        service.updateReview(reviewDto);
+    public void updateReview(@RequestBody Review review){
+        service.updateReview(review);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -33,32 +33,32 @@ public class ReviewController {
     }
 
     @GetMapping("/search")
-    public List<ReviewDto> getAllReview(){
+    public List<Review> getAllReview(){
         return service.getAllReview();
     }
 
     @GetMapping("/search/{id}")
-    public ReviewDto searchReviewById(@PathVariable Integer id){
+    public Review searchReviewById(@PathVariable Integer id){
         return service.searchReviewById(id);
     }
 
     @GetMapping("/search-by-user/{userId}")
-    public List<ReviewDto> searchReviewByUser(@PathVariable Integer userId){
+    public List<Review> searchReviewByUser(@PathVariable Integer userId){
         return service.searchReviewByUser(userId);
     }
 
     @GetMapping("/search-by-service/{serviceId}")
-    public List<ReviewDto> searchReviewByService(@PathVariable Integer serviceId){
+    public List<Review> searchReviewByService(@PathVariable Integer serviceId){
         return service.searchReviewByService(serviceId);
     }
 
     @GetMapping("/search-by-rating/{rating}")
-    public List<ReviewDto> searchReviewByRating(@PathVariable Integer rating){
+    public List<Review> searchReviewByRating(@PathVariable Integer rating){
         return service.searchReviewByRating(rating);
     }
 
     @GetMapping("/search-by-date/{date}")
-    public List<ReviewDto> searchReviewByUser(@PathVariable LocalDate date){
+    public List<Review> searchReviewByUser(@PathVariable LocalDate date){
         return service.searchReviewByDate(date);
     }
 

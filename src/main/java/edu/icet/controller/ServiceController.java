@@ -1,6 +1,6 @@
 package edu.icet.controller;
 
-import edu.icet.dto.ServicesDto;
+import edu.icet.model.Services;
 import edu.icet.service.ServicesService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -17,13 +17,13 @@ public class ServiceController {
     final ServicesService service;
 
     @PostMapping("/add")
-    public void addService(@RequestBody ServicesDto servicesDto){
-        service.addService(servicesDto);
+    public void addService(@RequestBody Services services){
+        service.addService(services);
     }
 
     @PutMapping("/update")
-    public void updateService(@RequestBody ServicesDto servicesDto){
-        service.updateService(servicesDto);
+    public void updateService(@RequestBody Services services){
+        service.updateService(services);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -32,32 +32,32 @@ public class ServiceController {
     }
 
     @GetMapping("/search/{id}")
-    public ServicesDto searchServiceById(@PathVariable Integer id){
+    public Services searchServiceById(@PathVariable Integer id){
         return service.searchServiceById(id);
     }
 
     @GetMapping("/search-by-name/{name}")
-    public List<ServicesDto> searchServiceByName(@PathVariable String name){
+    public List<Services> searchServiceByName(@PathVariable String name){
         return service.searchServiceByName(name);
     }
 
     @GetMapping("/search-by-price/{price}")
-    public List<ServicesDto> searchServiceByPrice(@PathVariable Double price){
+    public List<Services> searchServiceByPrice(@PathVariable Double price){
         return service.searchServiceByPrice(price);
     }
 
     @GetMapping("/search-all")
-    public List<ServicesDto> getAllServices(){
+    public List<Services> getAllServices(){
         return service.getAllServices();
     }
 
     @GetMapping("/search-all-by-name/{name}")
-    public List<ServicesDto> getAllServicesByName(@PathVariable String name){
+    public List<Services> getAllServicesByName(@PathVariable String name){
         return service.getAllServicesByName(name);
     }
 
     @GetMapping("/search-all-by-vendor/{id}")
-    public List<ServicesDto> getAllServicesByVendor(@PathVariable Integer id){
+    public List<Services> getAllServicesByVendor(@PathVariable Integer id){
         return service.getAllServicesByVendor(id);
     }
 }

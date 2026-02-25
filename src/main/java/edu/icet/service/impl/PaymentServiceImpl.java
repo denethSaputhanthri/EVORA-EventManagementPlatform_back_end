@@ -1,96 +1,66 @@
 package edu.icet.service.impl;
 
-import edu.icet.Enum.Status;
-import edu.icet.dto.PaymentDto;
-import edu.icet.entity.PaymentEntity;
-import edu.icet.repository.PaymentRepository;
+
+import edu.icet.model.Payment;
 import edu.icet.service.PaymentService;
+import edu.icet.util.Status;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-@Service
+
 @RequiredArgsConstructor
+@Service
 public class PaymentServiceImpl implements PaymentService {
 
-    final PaymentRepository repository;
-    final ModelMapper mapper;
-
     @Override
-    public void addPayment(PaymentDto payment) {
-        repository.save(mapper.map(payment, PaymentEntity.class));
+    public void addPayment(Payment payment) {
+
     }
 
     @Override
-    public void updatePayment(PaymentDto payment) {
-        repository.save(mapper.map(payment, PaymentEntity.class));
+    public void updatePayment(Payment payment) {
+
     }
 
     @Override
     public void deletePayment(Integer paymentId) {
-        repository.deleteById(paymentId);
+
     }
 
     @Override
-    public PaymentDto searchById(Integer paymentId) {
-        return mapper.map(repository.findById(paymentId).get(), PaymentDto.class);
+    public Payment searchById(Integer paymentId) {
+        return null;
     }
 
     @Override
-    public List<PaymentDto> getAllPaymentDetails() {
-        List<PaymentEntity>entities=repository.findAll();
-        ArrayList<PaymentDto>paymentDtoArrayList=new ArrayList<>();
-        entities.forEach(paymentEntity -> {
-            paymentDtoArrayList.add(mapper.map(paymentEntity, PaymentDto.class));
-        });
-        return paymentDtoArrayList;
+    public List<Payment> getAllPaymentDetails() {
+        return List.of();
     }
 
     @Override
-    public List<PaymentDto> searchByamount(Double amount) {
-        List<PaymentEntity>entities=repository.findByAmount(amount);
-        ArrayList<PaymentDto>paymentDtoArrayList=new ArrayList<>();
-        entities.forEach(paymentEntity -> {
-            paymentDtoArrayList.add(mapper.map(paymentEntity, PaymentDto.class));
-        });
-        return paymentDtoArrayList;
+    public List<Payment> searchByamount(Double amount) {
+        return List.of();
     }
 
     @Override
-    public List<PaymentDto> searchBypaymentMethod(String paymentMethod) {
-        List<PaymentEntity>entities=repository.findByPaymentMethod(paymentMethod);
-        ArrayList<PaymentDto>paymentDtoArrayList=new ArrayList<>();
-        entities.forEach(paymentEntity -> {
-            paymentDtoArrayList.add(mapper.map(paymentEntity, PaymentDto.class));
-        });
-        return paymentDtoArrayList;
+    public List<Payment> searchBypaymentMethod(String paymentMethod) {
+        return List.of();
     }
 
     @Override
-    public List<PaymentDto> searchBystatus(Status status) {
-        List<PaymentEntity>entities=repository.findByStatus(status);
-        ArrayList<PaymentDto>paymentDtoArrayList=new ArrayList<>();
-        entities.forEach(paymentEntity -> {
-            paymentDtoArrayList.add(mapper.map(paymentEntity, PaymentDto.class));
-        });
-        return paymentDtoArrayList;
+    public List<Payment> searchBystatus(Status status) {
+        return List.of();
     }
 
     @Override
-    public List<PaymentDto> searchBytransactionDate(LocalDate transactiondate) {
-        List<PaymentEntity>entities=repository.findByTransactionDate(transactiondate);
-        ArrayList<PaymentDto>paymentDtoArrayList=new ArrayList<>();
-        entities.forEach(paymentEntity -> {
-            paymentDtoArrayList.add(mapper.map(paymentEntity, PaymentDto.class));
-        });
-        return paymentDtoArrayList;
+    public List<Payment> searchBytransactionDate(LocalDate transactiondate) {
+        return List.of();
     }
 
     @Override
-    public PaymentDto searchBybookingId(Integer bookingId) {
-        return mapper.map(repository.findByBookingId(bookingId), PaymentDto.class);
+    public Payment searchBybookingId(Integer bookingId) {
+        return null;
     }
 }
