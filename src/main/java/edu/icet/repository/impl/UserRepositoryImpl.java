@@ -1,7 +1,6 @@
 package edu.icet.repository.impl;
 
 import edu.icet.model.User;
-import edu.icet.model.Wishlist;
 import edu.icet.repository.UserRepository;
 import edu.icet.util.Role;
 import lombok.RequiredArgsConstructor;
@@ -76,7 +75,8 @@ public class UserRepositoryImpl implements UserRepository {
             user.setRole(Role.valueOf(rs.getString("role")));
             user.setCreateAt(rs.getTimestamp("create_at"));
             return user;
-        },userId) ;    }
+        },userId) ;
+    }
 
     @Override
     public List<User> searchByName(String name) {
