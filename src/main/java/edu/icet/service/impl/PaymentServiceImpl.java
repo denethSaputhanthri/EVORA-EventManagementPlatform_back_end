@@ -2,6 +2,7 @@ package edu.icet.service.impl;
 
 
 import edu.icet.model.Payment;
+import edu.icet.repository.PaymentRepository;
 import edu.icet.service.PaymentService;
 import edu.icet.util.Status;
 import lombok.RequiredArgsConstructor;
@@ -14,53 +15,55 @@ import java.util.List;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
+    final PaymentRepository paymentRepository;
+
     @Override
     public void addPayment(Payment payment) {
-
+        paymentRepository.addPayment(payment);
     }
 
     @Override
     public void updatePayment(Payment payment) {
-
+        paymentRepository.updatePayment(payment);
     }
 
     @Override
     public void deletePayment(Integer paymentId) {
-
+        paymentRepository.deletePayment(paymentId);
     }
 
     @Override
     public Payment searchById(Integer paymentId) {
-        return null;
+        return paymentRepository.searchById(paymentId);
     }
 
     @Override
     public List<Payment> getAllPaymentDetails() {
-        return List.of();
+        return paymentRepository.getAllPaymentDetails();
     }
 
     @Override
     public List<Payment> searchByamount(Double amount) {
-        return List.of();
+        return paymentRepository.searchByamount(amount);
     }
 
     @Override
     public List<Payment> searchBypaymentMethod(String paymentMethod) {
-        return List.of();
+        return paymentRepository.searchBypaymentMethod(paymentMethod);
     }
 
     @Override
     public List<Payment> searchBystatus(Status status) {
-        return List.of();
+        return paymentRepository.searchBystatus(status);
     }
 
     @Override
-    public List<Payment> searchBytransactionDate(LocalDate transactiondate) {
-        return List.of();
+    public List<Payment> searchBytransactionDate(LocalDate transactionDate) {
+        return paymentRepository.searchBytransactionDate(transactionDate);
     }
 
     @Override
     public Payment searchBybookingId(Integer bookingId) {
-        return null;
+        return searchBybookingId(bookingId);
     }
 }
