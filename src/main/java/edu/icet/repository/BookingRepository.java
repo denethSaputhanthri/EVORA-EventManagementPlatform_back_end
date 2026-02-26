@@ -1,15 +1,20 @@
 package edu.icet.repository;
 
-import edu.icet.entity.BookingEntity;
-import edu.icet.status.Status;
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import edu.icet.model.Booking;
+import edu.icet.util.Status;
 
 import java.util.List;
 
-public interface BookingRepository extends JpaRepository<BookingEntity,Integer> {
-    BookingEntity findBybookingId(Integer id);
-    List<BookingEntity> findAllByeventId(Integer eventId);
-    List<BookingEntity> findAllByserviceId(Integer serviceId);
-    List<BookingEntity> findAllByStatus(Status status);
-    List<BookingEntity> findAllByfinalPrice(Double price);
+public interface BookingRepository {
+
+    void addBooking(Booking booking);
+    void updateBooking(Booking booking);
+    void deleteBooking(Integer id);
+    List<Booking> getAllBooking();
+    Booking searchBookingById(Integer id);
+    List<Booking> searchBookingByEvent(Integer eventId);
+    List<Booking> searchBookingByService(Integer serviceId);
+    List<Booking> searchBookingByStatus(Status status);
+    List<Booking> searchBookingByPrice(Double price);
 }

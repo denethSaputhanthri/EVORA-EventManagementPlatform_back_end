@@ -1,18 +1,18 @@
 package edu.icet.service;
 
-import edu.icet.dto.BookingDto;
-import edu.icet.status.Status;
+import edu.icet.model.Booking;
+import edu.icet.util.Status;
 
 import java.util.List;
 
 public interface BookingService {
-    void addBooking(BookingDto bookingDto);
-    void updateBooking(BookingDto bookingDto);
+    void addBooking(Booking booking);
+    void updateBooking(Booking booking);
     void deleteBooking(Integer id);
-    List<BookingDto> getAllBooking();
-    BookingDto searchBookingById(Integer id);
-    List<BookingDto> searchBookingByEvent(Integer eventId);
-    List<BookingDto> searchBookingByService(Integer serviceId);
-    List<BookingDto> searchBookingByStatus(Status status);
-    List<BookingDto> searchBookingByPrice(Double price);
+    List<Booking> getAllBooking();
+    Booking searchBookingById(Integer id);
+    List<Booking> searchBookingByEvent(Integer eventId);
+    List<Booking> searchBookingByService(Integer serviceId);
+    List<Booking> searchBookingByStatus(Status status);
+    List<Booking> searchBookingByPrice(Double price);
 }

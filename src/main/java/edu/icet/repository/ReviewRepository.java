@@ -1,16 +1,20 @@
 package edu.icet.repository;
 
-import edu.icet.dto.ReviewDto;
-import edu.icet.entity.ReviewEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import edu.icet.model.Review;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public interface ReviewRepository extends JpaRepository<ReviewEntity, Integer> {
-    ReviewEntity findByreviewId(Integer id);
-    List<ReviewEntity> findAllByuserId(Integer userId);
-    List<ReviewEntity> findAllByserviceId(Integer serviceId);
-    List<ReviewEntity> findAllByrating(Integer rating);
-    List<ReviewEntity> findAllBycreatedAt(LocalDate date);
+public interface ReviewRepository {
+    boolean addReview(Review review);
+    boolean updateReview(Review review);
+    boolean deleteReview(Integer id);
+    List<Review> getAllReview();
+    Review searchReviewById(Integer id);
+    List<Review> searchReviewByUser(Integer userId);
+    List<Review> searchReviewByService(Integer serviceId);
+    List<Review> searchReviewByRating(Integer rating);
+    List<Review> searchReviewByDate(LocalDate date);
+
 }

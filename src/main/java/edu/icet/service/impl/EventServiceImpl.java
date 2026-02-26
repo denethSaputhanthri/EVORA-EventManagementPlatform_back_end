@@ -1,96 +1,67 @@
 package edu.icet.service.impl;
 
-import edu.icet.dto.EventDto;
-import edu.icet.entity.EventEntity;
+import edu.icet.model.Event;
 import edu.icet.repository.EventRepository;
 import edu.icet.service.EventService;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-@Service
+
 @RequiredArgsConstructor
+@Service
 public class EventServiceImpl implements EventService {
 
-     final EventRepository repository;
-     final ModelMapper mapper;
-
+    final EventRepository eventRepository;
 
     @Override
-    public void addEvent(EventDto event) {
-        repository.save(mapper.map(event, EventEntity.class));
+    public void addEvent(Event event) {
+        eventRepository.addEvent(event);
     }
 
     @Override
-    public void updateEvent(EventDto event) {
-        repository.save(mapper.map(event, EventEntity.class));
+    public void updateEvent(Event event) {
+        eventRepository.updateEvent(event);
     }
 
     @Override
     public void deleteEvent(Integer eventId) {
-        repository.deleteById(eventId);
+        eventRepository.deleteEvent(eventId);
     }
 
     @Override
-    public List<EventDto> getAllEventDetail() {
-        List<EventEntity>entities=repository.findAll();
-        ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
-        entities.forEach(eventEntity -> {
-            eventDtoArrayList.add(mapper.map(eventEntity, EventDto.class));
-        });
-        return eventDtoArrayList;
+    public List<Event> getAllEventDetail(){
+        return eventRepository.getAllEventDetail();
     }
 
     @Override
-    public EventDto searchById(Integer eventId) {
-        return mapper.map(repository.findById(eventId).get(),EventDto.class) ;
+    public Event searchById(Integer eventId) {
+        return eventRepository.searchById(eventId);
     }
 
     @Override
-    public EventDto searByuserId(Integer userId) {
-        return mapper.map(repository.findByuserId(userId), EventDto.class);
+    public Event searByuserId(Integer userId) {
+        return eventRepository.searByuserId(userId);
     }
 
     @Override
-    public List<EventDto> searchBytype(String type) {
-        List<EventEntity>entities=repository.findBytype(type);
-        ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
-        entities.forEach(eventEntity -> {
-            eventDtoArrayList.add(mapper.map(eventEntity, EventDto.class));
-        });
-        return eventDtoArrayList;
+    public List<Event> searchBytype(String type) {
+        return eventRepository.searchBytype(type);
     }
 
     @Override
-    public List<EventDto> searchBylocation(String location) {
-        List<EventEntity>entities=repository.findBylocation(location);
-        ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
-        entities.forEach(eventEntity -> {
-            eventDtoArrayList.add(mapper.map(eventEntity, EventDto.class));
-        });
-        return eventDtoArrayList;
+    public List<Event> searchBylocation(String location) {
+        return eventRepository.searchBylocation(location);
     }
 
     @Override
-    public List<EventDto> searchBydate(LocalDate date) {
-        List<EventEntity>entities=repository.findBydate(date);
-        ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
-        entities.forEach(eventEntity -> {
-            eventDtoArrayList.add(mapper.map(eventEntity, EventDto.class));
-        });
-        return eventDtoArrayList;
+    public List<Event> searchBydate(LocalDate date) {
+        return eventRepository.searchBydate(date);
     }
 
     @Override
-    public List<EventDto> searchBybudget(Double budget) {
-        List<EventEntity>entities=repository.findBybudget(budget);
-        ArrayList<EventDto>eventDtoArrayList=new ArrayList<>();
-        entities.forEach(eventEntity -> {
-            eventDtoArrayList.add(mapper.map(eventEntity, EventDto.class));
-        });
-        return eventDtoArrayList;
+    public List<Event> searchBybudget(Double budget) {
+        return eventRepository.searchBybudget(budget);
     }
 }

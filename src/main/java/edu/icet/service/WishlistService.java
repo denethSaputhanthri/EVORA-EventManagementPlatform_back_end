@@ -1,17 +1,17 @@
 package edu.icet.service;
 
-import edu.icet.dto.WishlistDto;
+import edu.icet.model.Wishlist;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public interface WishlistService {
-    void addWishlist(WishlistDto wishlistDto);
-    void updateWishlist(WishlistDto wishlistDto);
+    void addWishlist(Wishlist wishlist);
+    void updateWishlist(Wishlist wishlist);
     void deleteWishlist(Integer id);
-    WishlistDto searchWishlistById(Integer id);
-    List<WishlistDto> getAllWishlist();
-    List<WishlistDto> searchWishlistByUser(Integer userId);
-    List<WishlistDto> searchWishlistByService(Integer serviceId);
-    List<WishlistDto> searchWishlistByTime(LocalDateTime time);
+    Wishlist searchWishlistById(Integer id);
+    List<Wishlist> getAllWishlist();
+    List<Wishlist> searchWishlistByUser(Integer userId);
+    List<Wishlist> searchWishlistByService(Integer serviceId);
+    List<Wishlist> searchWishlistByTime(LocalDateTime time);
 }

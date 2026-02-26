@@ -1,14 +1,19 @@
 package edu.icet.repository;
 
-import edu.icet.entity.MessageEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import edu.icet.model.Message;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public interface MessageRepository extends JpaRepository<MessageEntity,Integer> {
-    MessageEntity findBymessageId(Integer messageId);
-    List<MessageEntity> findBysenderId(Integer senderId);
-    List<MessageEntity> findByreceiverId(Integer receiverId);
-    List<MessageEntity> findBysentAt(LocalDate date);
+public interface MessageRepository {
+    void addMessage(Message message);
+    void updateMessage(Message message);
+    void deleteMessage(Integer id);
+    List<Message> getAllMessage();
+    Message searchMessageById(Integer id);
+    List<Message> searchMessageBySender(Integer senderId);
+    List<Message> searchMessageByReceiver(Integer receiverId);
+    List<Message> searchMessageByDate(LocalDate date);
+
 }

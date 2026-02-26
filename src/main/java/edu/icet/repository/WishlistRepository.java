@@ -1,14 +1,18 @@
 package edu.icet.repository;
 
-import edu.icet.dto.WishlistDto;
-import edu.icet.entity.WishlistEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import edu.icet.model.Wishlist;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public interface WishlistRepository extends JpaRepository<WishlistEntity,Integer> {
-    List<WishlistEntity> findAllByuserId(Integer userId);
-    List<WishlistEntity> findAllByserviceId(Integer serviceId);
-    List<WishlistEntity> findAllByaddedAt(LocalDateTime time);
+public interface WishlistRepository {
+    boolean addWishlist(Wishlist wishlist);
+    boolean updateWishlist(Wishlist wishlist);
+    boolean deleteWishlist(Integer id);
+    Wishlist searchWishlistById(Integer id);
+    List<Wishlist> getAllWishlist();
+    List<Wishlist> searchWishlistByUser(Integer userId);
+    List<Wishlist> searchWishlistByService(Integer serviceId);
+    List<Wishlist> searchWishlistByTime(LocalDateTime time);
 }

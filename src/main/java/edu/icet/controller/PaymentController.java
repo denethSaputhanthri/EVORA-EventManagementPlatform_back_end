@@ -1,7 +1,7 @@
 package edu.icet.controller;
 
-import edu.icet.utill.Status;
-import edu.icet.dto.PaymentDto;
+import edu.icet.util.Status;
+import edu.icet.model.Payment;
 import edu.icet.service.PaymentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +19,12 @@ public class PaymentController {
     final PaymentService service;
 
     @PostMapping("/add/details")
-    private void addPayment(@RequestBody PaymentDto payment){
+    private void addPayment(@RequestBody Payment payment){
         service.addPayment(payment);
     }
 
     @PutMapping("/update/details")
-    private void updatePayment(@RequestBody PaymentDto payment){
+    private void updatePayment(@RequestBody Payment payment){
         service.updatePayment(payment);;
     }
 
@@ -34,37 +34,37 @@ public class PaymentController {
     }
 
     @GetMapping("/getAll/details")
-    public List<PaymentDto> getAllPaymentDetails(){
+    public List<Payment> getAllPaymentDetails(){
         return service.getAllPaymentDetails();
     }
 
     @GetMapping("/searchById/{paymentId}")
-    private PaymentDto searchById(@PathVariable Integer paymentId){
+    private Payment searchById(@PathVariable Integer paymentId){
         return service.searchById(paymentId);
     }
 
     @GetMapping("/searchByAmount/{amount}")
-    private List<PaymentDto> searchByAmount(@PathVariable Double amount){
+    private List<Payment> searchByAmount(@PathVariable Double amount){
         return service.searchByamount(amount);
     }
 
     @GetMapping("/searchByPaymentMethod/{paymentMethod}")
-    private List<PaymentDto> searchByPaymentMethod(@PathVariable String paymentMethod){
+    private List<Payment> searchByPaymentMethod(@PathVariable String paymentMethod){
         return service.searchBypaymentMethod(paymentMethod);
     }
 
     @GetMapping("/searchByStatus/{status}")
-    private List<PaymentDto> searchByStatus(@PathVariable Status status){
+    private List<Payment> searchByStatus(@PathVariable Status status){
         return service.searchBystatus(status);
     }
 
     @GetMapping("/searchByBookingId/{bookingId}")
-    private PaymentDto searchByBookingId(@PathVariable Integer bookingId){
+    private Payment searchByBookingId(@PathVariable Integer bookingId){
         return service.searchBybookingId(bookingId);
     }
 
     @GetMapping("/searchByTransactionDate/{transaction}")
-    private List<PaymentDto> searchByTransaction(@PathVariable LocalDate transaction){
+    private List<Payment> searchByTransaction(@PathVariable LocalDate transaction){
         return service.searchBytransactionDate(transaction);
     }
 }

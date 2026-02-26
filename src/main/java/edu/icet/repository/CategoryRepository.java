@@ -1,10 +1,15 @@
 package edu.icet.repository;
 
-import edu.icet.dto.CategoryDto;
-import edu.icet.entity.CategoryEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CategoryRepository extends JpaRepository<CategoryEntity,Integer> {
-    CategoryDto findByid(Integer id);
-    CategoryDto findByname(String name);
+import edu.icet.model.Category;
+
+import java.util.List;
+
+public interface CategoryRepository{
+    void addCategory(Category category);
+    void updateCategory(Category category);
+    void deleteCategory(Integer id);
+    List<Category> getAllCategory();
+    Category searchCategoryByName(String name);
+    Category searchCategoryById(Integer id);
 }
